@@ -21,11 +21,12 @@ namespace superheroic.Controllers
         }        
         public ActionResult Index()
         {
+
             return View();
         }
 
         // GET: superController/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int id)     // all info here
         {
             return View();
         }
@@ -35,27 +36,16 @@ namespace superheroic.Controllers
         {
             return View();
         }
-        public ActionResult Create(Super super) 
+        
+        // POST: superController/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Super super)
         {
             try
             {
                 _context.Supers.Add(super);
                 _context.SaveChanges();
-                return RedirectToAction(nameof(Index));
-            }
-            catch 
-            {
-                return View();
-            
-            }
-        }
-        // POST: superController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -65,7 +55,7 @@ namespace superheroic.Controllers
         }
 
         // GET: superController/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id) // object you are editing   
         {
             return View();
         }
@@ -86,7 +76,7 @@ namespace superheroic.Controllers
         }
 
         // GET: superController/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int id) // stuff goes here too  
         {
             return View();
         }
