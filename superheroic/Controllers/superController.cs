@@ -68,6 +68,8 @@ namespace superheroic.Controllers
         {
             try
             {
+                _context.Supers.Update(super);
+                _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -76,7 +78,7 @@ namespace superheroic.Controllers
             }
         }
 
-        // GET: superController/Delete/5
+        // GET: superController/Delete/5`
         public ActionResult Delete(int id) // stuff goes here too  
         {
             return View();
@@ -89,6 +91,8 @@ namespace superheroic.Controllers
         {
             try
             {
+                _context.Supers.Remove(super);
+                _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             catch
