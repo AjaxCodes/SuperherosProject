@@ -26,12 +26,12 @@ namespace superheroic.Controllers
         }
 
         // GET: superController/Details/5
-        public ActionResult Details(int id)     // all info here
+        public ActionResult Details(int id)     
         {
+            var superheroes = _context.Supers.Find(id);
             return View();
         }
-
-        // GET: superController/Create
+         // GET: superController/Create
         public ActionResult Create()
         {
             return View();
@@ -55,10 +55,10 @@ namespace superheroic.Controllers
         }
 
         // GET: superController/Edit/5
-        public ActionResult Edit(int id) // object you are editing   
+        public ActionResult Edit(int id)  
         {
-
-            return View();
+            var superheroes = _context.Supers.Find(id);
+            return View(superheroes);
         }
 
         // POST: superController/Edit/5
@@ -68,6 +68,7 @@ namespace superheroic.Controllers
         {
             try
             {
+                
                 _context.Supers.Update(super);
                 _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
@@ -81,6 +82,7 @@ namespace superheroic.Controllers
         // GET: superController/Delete/5`
         public ActionResult Delete(int id) // stuff goes here too  
         {
+            var superheroes = _context.Supers.Find(id);
             return View();
         }
 
