@@ -21,8 +21,8 @@ namespace superheroic.Controllers
         }        
         public ActionResult Index()
         {
-
-            return View();
+            var superheroes = _context.Supers.ToList();
+            return View(superheroes);
         }
 
         // GET: superController/Details/5
@@ -57,13 +57,14 @@ namespace superheroic.Controllers
         // GET: superController/Edit/5
         public ActionResult Edit(int id) // object you are editing   
         {
+
             return View();
         }
 
         // POST: superController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, Super super)
         {
             try
             {
@@ -84,7 +85,7 @@ namespace superheroic.Controllers
         // POST: superController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int id, Super super)
         {
             try
             {
